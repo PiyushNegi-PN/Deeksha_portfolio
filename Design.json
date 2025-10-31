@@ -1,0 +1,660 @@
+{
+  "designSystem": {
+    "metadata": {
+      "systemName": "Modern Portfolio/Agency Design System",
+      "designStyle": "Vibrant, playful, contemporary with bold colors and organic shapes",
+      "targetUse": "Portfolio websites, creative agencies, personal branding, UI/UX designer showcases"
+    },
+    "colorPalette": {
+      "primary": {
+        "purple": "#5B4FFF",
+        "purpleDark": "#4A3FE8",
+        "purpleLight": "#7B6FFF",
+        "vibrantBlue": "#5956E9"
+      },
+      "secondary": {
+        "orange": "#FFB649",
+        "orangeLight": "#FFC766",
+        "yellow": "#FFD93D",
+        "coral": "#FF6B6B"
+      },
+      "neutral": {
+        "white": "#FFFFFF",
+        "offWhite": "#F8F9FF",
+        "lightGray": "#F5F5F5",
+        "gray": "#6B7280",
+        "darkGray": "#374151",
+        "nearBlack": "#1F2937"
+      },
+      "accent": {
+        "lightPurple": "#C4B5FD",
+        "lightOrange": "#FED7AA",
+        "lightYellow": "#FEF3C7",
+        "softPink": "#FBCFE8"
+      }
+    },
+    "typography": {
+      "fontFamilies": {
+        "primary": "Poppins, Inter, system-ui, sans-serif",
+        "heading": "Poppins, sans-serif",
+        "body": "Inter, sans-serif"
+      },
+      "scale": {
+        "hero": {
+          "fontSize": "3.5rem",
+          "fontWeight": "700",
+          "lineHeight": "1.1",
+          "letterSpacing": "-0.02em",
+          "usage": "Main hero headlines"
+        },
+        "h1": {
+          "fontSize": "2.5rem",
+          "fontWeight": "700",
+          "lineHeight": "1.2",
+          "usage": "Section main headings"
+        },
+        "h2": {
+          "fontSize": "2rem",
+          "fontWeight": "600",
+          "lineHeight": "1.3",
+          "usage": "Section subheadings"
+        },
+        "h3": {
+          "fontSize": "1.5rem",
+          "fontWeight": "600",
+          "lineHeight": "1.4",
+          "usage": "Card titles, subsection headings"
+        },
+        "body": {
+          "fontSize": "1rem",
+          "fontWeight": "400",
+          "lineHeight": "1.7",
+          "usage": "Paragraphs, descriptions"
+        },
+        "small": {
+          "fontSize": "0.875rem",
+          "fontWeight": "400",
+          "lineHeight": "1.6",
+          "usage": "Captions, metadata"
+        },
+        "label": {
+          "fontSize": "0.75rem",
+          "fontWeight": "600",
+          "lineHeight": "1.5",
+          "letterSpacing": "0.05em",
+          "textTransform": "uppercase",
+          "usage": "Section labels, categories"
+        }
+      }
+    },
+    "spacing": {
+      "scale": "4px base unit (1 = 4px, 2 = 8px, etc.)",
+      "sections": {
+        "paddingVertical": "80px to 120px",
+        "paddingHorizontal": "5% to 8%",
+        "maxWidth": "1280px",
+        "margin": "0 auto"
+      },
+      "components": {
+        "cardPadding": "32px",
+        "buttonPadding": "12px 32px",
+        "inputPadding": "14px 20px"
+      },
+      "values": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "16px",
+        "lg": "24px",
+        "xl": "32px",
+        "2xl": "48px",
+        "3xl": "64px",
+        "4xl": "96px"
+      }
+    },
+    "layout": {
+      "structure": [
+        {
+          "section": "hero",
+          "description": "Full-width hero section with vibrant background",
+          "layout": "Asymmetric two-column (55/45 split), single column on mobile",
+          "background": "Solid vibrant color (purple/blue gradient)",
+          "elements": [
+            "Navigation bar at top",
+            "Large heading with name/title (left side)",
+            "Short description/tagline",
+            "2-3 CTA buttons",
+            "Hero image/photo (right side, with decorative background shape)",
+            "Social media icons (left sidebar vertical)",
+            "Decorative abstract shapes (circles, blobs)",
+            "Scroll indicator or decorative elements at bottom"
+          ],
+          "decorativeElements": [
+            "Organic blob shapes behind image",
+            "Small circles/dots scattered",
+            "Hand-drawn style arrows or lines",
+            "Floating geometric shapes"
+          ]
+        },
+        {
+          "section": "services",
+          "description": "Service cards in grid layout",
+          "layout": "3-column grid on desktop, 1-column on mobile",
+          "background": "Light neutral (off-white to white)",
+          "elements": [
+            "Section label (small, uppercase)",
+            "Section heading",
+            "Optional description",
+            "Service cards with icons",
+            "Decorative accent shapes in corners"
+          ],
+          "cardStructure": {
+            "centerCard": "Highlighted with primary color background",
+            "sideCards": "White/light background",
+            "content": [
+              "Icon at top (line style or solid)",
+              "Service title",
+              "Brief description"
+            ]
+          }
+        },
+        {
+          "section": "about",
+          "description": "Two-column about section with image",
+          "layout": "Asymmetric two-column (45/55 for image/text)",
+          "background": "Light gray or off-white",
+          "elements": [
+            "Large circular or shaped image container",
+            "Decorative circular background behind image",
+            "Section label",
+            "Heading",
+            "Paragraphs of text",
+            "Bullet points with icons",
+            "CTA button",
+            "Scattered decorative elements (triangles, circles, arrows)"
+          ]
+        },
+        {
+          "section": "process",
+          "description": "Step-by-step process visualization",
+          "layout": "Horizontal timeline with 3-4 steps",
+          "background": "White or light neutral",
+          "elements": [
+            "Section label",
+            "Section heading",
+            "Step cards in row",
+            "Connecting arrows between steps (curved, decorative)",
+            "Decorative background elements"
+          ],
+          "stepCard": [
+            "Circular icon with gradient or solid color",
+            "Step number or icon",
+            "Step title",
+            "Description (2-3 lines)"
+          ]
+        },
+        {
+          "section": "testimonials",
+          "description": "Customer testimonials in card grid",
+          "layout": "3-column grid, scrollable on mobile",
+          "background": "White or very light",
+          "elements": [
+            "Section label",
+            "Section heading",
+            "Testimonial cards",
+            "Decorative dots pattern or abstract shapes"
+          ],
+          "testimonialCard": [
+            "5-star rating display",
+            "Quote/testimonial text",
+            "Profile photo (circular, small)",
+            "Name",
+            "Title/company"
+          ]
+        },
+        {
+          "section": "portfolio",
+          "description": "Project showcase grid",
+          "layout": "Grid of project cards (2-3 columns)",
+          "background": "Light neutral",
+          "elements": [
+            "Section label",
+            "Section heading",
+            "Filter/category buttons",
+            "Project cards with screenshots",
+            "Decorative elements in corners"
+          ],
+          "projectCard": [
+            "Project screenshot/mockup image",
+            "Project title below image",
+            "Small icon or category indicator",
+            "Hover effect revealing more info"
+          ]
+        },
+        {
+          "section": "cta",
+          "description": "Final call-to-action section",
+          "layout": "Centered or two-column with image",
+          "background": "Vibrant primary color (purple/blue)",
+          "elements": [
+            "Large heading",
+            "Supporting text",
+            "CTA button(s)",
+            "Image/photo on side (optional)",
+            "Decorative shapes and lines",
+            "Social proof elements"
+          ]
+        },
+        {
+          "section": "footer",
+          "description": "Newsletter signup and footer links",
+          "layout": "Two-column (newsletter form + links)",
+          "background": "White or light",
+          "elements": [
+            "Newsletter heading",
+            "Email input with inline button",
+            "Footer navigation links",
+            "Copyright text",
+            "Decorative arrow or line"
+          ]
+        }
+      ],
+      "grid": {
+        "columns": 12,
+        "gutter": "24px to 32px",
+        "responsive": {
+          "desktop": "1280px max-width",
+          "tablet": "768px breakpoint",
+          "mobile": "480px breakpoint"
+        }
+      }
+    },
+    "components": {
+      "navigation": {
+        "type": "Horizontal navbar",
+        "position": "Absolute or fixed at top",
+        "styling": {
+          "background": "Transparent or semi-transparent",
+          "height": "70px to 80px",
+          "padding": "0 5%"
+        },
+        "elements": [
+          "Logo/brand name (left, medium weight)",
+          "Navigation links (center or right)",
+          "Primary CTA button (right, contrasting color)"
+        ],
+        "linkStyle": {
+          "fontSize": "0.95rem",
+          "fontWeight": "500",
+          "spacing": "32px between links",
+          "color": "White or dark depending on background",
+          "hoverEffect": "Underline or color change"
+        },
+        "mobile": {
+          "type": "Hamburger menu",
+          "icon": "Three horizontal lines",
+          "menuStyle": "Full-screen overlay or slide-in"
+        }
+      },
+      "buttons": {
+        "primary": {
+          "background": "Linear gradient or solid accent color",
+          "color": "#FFFFFF",
+          "padding": "14px 32px",
+          "borderRadius": "50px",
+          "fontSize": "1rem",
+          "fontWeight": "600",
+          "hoverEffect": "Scale(1.05) and shadow increase",
+          "transition": "all 0.3s ease",
+          "shadow": "0 4px 12px rgba(255, 182, 73, 0.3)"
+        },
+        "secondary": {
+          "background": "Transparent or white",
+          "color": "Primary color or dark",
+          "border": "2px solid currentColor",
+          "padding": "12px 28px",
+          "borderRadius": "50px",
+          "hoverEffect": "Background fills with color"
+        },
+        "sizes": {
+          "small": "10px 20px, 0.875rem",
+          "medium": "14px 32px, 1rem",
+          "large": "16px 40px, 1.125rem"
+        }
+      },
+      "cards": {
+        "serviceCard": {
+          "background": "#FFFFFF",
+          "borderRadius": "16px to 20px",
+          "padding": "32px",
+          "shadow": "0 4px 20px rgba(0, 0, 0, 0.08)",
+          "hoverEffect": "Lift (translateY(-8px)) and shadow increase",
+          "transition": "all 0.4s ease",
+          "structure": [
+            "Icon container (60-80px, colored background circle)",
+            "Title (h3 size, 16px margin-top)",
+            "Description (body text, muted color)"
+          ],
+          "featuredCard": {
+            "background": "Primary color gradient",
+            "color": "#FFFFFF",
+            "iconColor": "#FFFFFF"
+          }
+        },
+        "testimonialCard": {
+          "background": "#FFFFFF",
+          "borderRadius": "16px",
+          "padding": "28px",
+          "shadow": "0 2px 12px rgba(0, 0, 0, 0.06)",
+          "structure": [
+            "Star rating (top, yellow/orange)",
+            "Quote text (16px margin-top)",
+            "Profile section (flex row, 20px margin-top)",
+            "Photo (40px circle)",
+            "Name and title (left of photo)"
+          ]
+        },
+        "projectCard": {
+          "background": "#FFFFFF",
+          "borderRadius": "12px to 16px",
+          "overflow": "hidden",
+          "shadow": "0 4px 16px rgba(0, 0, 0, 0.08)",
+          "hoverEffect": "Scale(1.02) and shadow increase",
+          "structure": [
+            "Image container (aspect ratio 4:3 or 16:9)",
+            "Content area (20px padding)",
+            "Title",
+            "Category icon or tag"
+          ]
+        }
+      },
+      "icons": {
+        "style": "Line icons (outlined) or duotone",
+        "strokeWidth": "2px",
+        "size": "24px to 48px (in cards), 64px to 80px (in process section)",
+        "colors": "Primary color, white, or gradient",
+        "backgroundCircle": {
+          "size": "80px to 120px diameter",
+          "background": "Gradient or solid color with opacity",
+          "display": "Flex, centered"
+        }
+      },
+      "decorativeElements": {
+        "organicShapes": {
+          "types": ["Blobs", "Circles", "Rounded rectangles"],
+          "sizes": "200px to 600px",
+          "colors": "Accent colors with 60-80% opacity",
+          "positioning": "Absolute, behind main content",
+          "usage": "Hero backgrounds, section accents"
+        },
+        "geometricShapes": {
+          "types": ["Circles", "Triangles", "Squares", "Dots"],
+          "sizes": "16px to 60px",
+          "colors": "Accent colors, semi-transparent",
+          "positioning": "Scattered, absolute",
+          "usage": "Corner decorations, floating elements"
+        },
+        "handDrawnElements": {
+          "types": ["Arrows", "Underlines", "Scribbles", "Lines"],
+          "style": "Organic, imperfect, hand-drawn appearance",
+          "strokeWidth": "2px to 4px",
+          "colors": "Dark gray or accent colors",
+          "usage": "Connecting elements, emphasis"
+        },
+        "dotPatterns": {
+          "type": "Grid of small circles",
+          "size": "4px to 8px diameter",
+          "spacing": "16px to 24px",
+          "color": "Light gray with low opacity",
+          "usage": "Background textures"
+        }
+      },
+      "imageContainers": {
+        "hero": {
+          "shape": "Irregular, with organic blob background",
+          "size": "400px to 500px width",
+          "background": "Large organic shape in accent color",
+          "imagePlacement": "Centered, slightly overlapping shape",
+          "border": "Optional white border on image"
+        },
+        "about": {
+          "shape": "Circular with decorative background",
+          "size": "350px to 450px diameter",
+          "background": "Large circle in accent color (behind)",
+          "additionalElements": "Small floating shapes around"
+        },
+        "testimonial": {
+          "shape": "Small circle",
+          "size": "40px to 48px diameter",
+          "border": "Optional thin border"
+        }
+      },
+      "forms": {
+        "inputFields": {
+          "background": "#FFFFFF",
+          "border": "1px solid #E5E7EB",
+          "borderRadius": "50px or 8px",
+          "padding": "14px 20px",
+          "fontSize": "1rem",
+          "focusEffect": "Border color changes to primary, shadow adds",
+          "placeholder": {
+            "color": "#9CA3AF"
+          }
+        },
+        "newsletterForm": {
+          "layout": "Inline (input + button in same row)",
+          "inputWidth": "70%",
+          "buttonWidth": "30%",
+          "borderRadius": "50px for entire container"
+        }
+      },
+      "socialIcons": {
+        "placement": "Vertical sidebar (left side of hero)",
+        "style": "Circular or square with rounded corners",
+        "size": "40px",
+        "spacing": "12px between icons",
+        "color": "White or primary color",
+        "background": "Transparent or semi-transparent",
+        "hoverEffect": "Scale(1.1) and background color change"
+      },
+      "processFlow": {
+        "connector": {
+          "type": "Curved arrow or dotted line",
+          "style": "Hand-drawn or smooth bezier curve",
+          "color": "Accent color (orange/yellow)",
+          "strokeWidth": "2px to 3px",
+          "direction": "Left to right"
+        },
+        "stepIndicator": {
+          "shape": "Circle with icon or number",
+          "size": "80px to 120px diameter",
+          "background": "Gradient or solid primary color",
+          "iconColor": "#FFFFFF",
+          "shadow": "0 4px 12px rgba(91, 79, 255, 0.2)"
+        }
+      },
+      "filterButtons": {
+        "inactive": {
+          "background": "#FFFFFF",
+          "color": "#6B7280",
+          "border": "1px solid #E5E7EB",
+          "padding": "8px 20px",
+          "borderRadius": "50px",
+          "fontSize": "0.9rem"
+        },
+        "active": {
+          "background": "Primary color",
+          "color": "#FFFFFF",
+          "border": "none"
+        }
+      }
+    },
+    "visualEffects": {
+      "shadows": {
+        "small": "0 2px 8px rgba(0, 0, 0, 0.06)",
+        "medium": "0 4px 16px rgba(0, 0, 0, 0.08)",
+        "large": "0 8px 24px rgba(0, 0, 0, 0.12)",
+        "coloredShadow": "0 4px 20px rgba(91, 79, 255, 0.25)",
+        "hoverShadow": "0 12px 32px rgba(0, 0, 0, 0.15)"
+      },
+      "gradients": {
+        "primary": "linear-gradient(135deg, #5B4FFF 0%, #7B6FFF 100%)",
+        "accent": "linear-gradient(135deg, #FFB649 0%, #FF8A56 100%)",
+        "subtle": "linear-gradient(180deg, #F8F9FF 0%, #FFFFFF 100%)"
+      },
+      "transitions": {
+        "fast": "0.2s ease",
+        "normal": "0.3s ease",
+        "slow": "0.4s ease",
+        "spring": "0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+      },
+      "borderRadius": {
+        "small": "8px",
+        "medium": "12px to 16px",
+        "large": "20px to 24px",
+        "pill": "50px",
+        "circle": "50%"
+      },
+      "animations": {
+        "float": "Gentle up-down movement (20px range)",
+        "pulse": "Subtle scale animation",
+        "fadeInUp": "Opacity 0 to 1 with translateY(20px to 0)"
+      }
+    },
+    "contentGuidelines": {
+      "hero": {
+        "headline": "2-3 lines maximum, emphasize key words",
+        "description": "1-2 lines, 80-120 characters",
+        "ctas": "2 maximum (primary + secondary)",
+        "socialIcons": "4-6 main platforms"
+      },
+      "services": {
+        "numberOfServices": "3-6 key services",
+        "titleLength": "2-4 words",
+        "descriptionLength": "15-25 words"
+      },
+      "about": {
+        "paragraphs": "2-3 paragraphs, 40-60 words each",
+        "bulletPoints": "3-5 key points with icons"
+      },
+      "process": {
+        "numberOfSteps": "3-4 main steps",
+        "stepTitle": "2-4 words",
+        "stepDescription": "15-20 words"
+      },
+      "testimonials": {
+        "numberDisplayed": "3-6 testimonials",
+        "quoteLength": "30-60 words",
+        "includeRating": "Yes, 5-star system"
+      },
+      "portfolio": {
+        "projectsPerPage": "6-9 projects",
+        "categories": "4-6 filter categories",
+        "projectTitle": "2-5 words"
+      }
+    },
+    "responsiveDesign": {
+      "breakpoints": {
+        "mobile": "0-640px",
+        "tablet": "641-1024px",
+        "desktop": "1025px+"
+      },
+      "adaptations": {
+        "mobile": {
+          "navigation": "Hamburger menu, full-screen overlay",
+          "hero": "Single column, image below or removed",
+          "serviceCards": "1 column, full width",
+          "about": "Single column, image above text",
+          "process": "Vertical timeline",
+          "testimonials": "Horizontal scroll or 1 column",
+          "portfolio": "1-2 columns",
+          "fontSize": "Scale down hero by 25%, body by 10%"
+        },
+        "tablet": {
+          "serviceCards": "2 columns",
+          "portfolio": "2 columns",
+          "process": "May remain horizontal if space allows"
+        }
+      },
+      "imageHandling": {
+        "mobile": "Reduce size by 30-40%",
+        "tablet": "Reduce size by 20%",
+        "lazyLoading": "Implement for all images"
+      }
+    },
+    "accessibilityFeatures": {
+      "colorContrast": "WCAG AA compliant (4.5:1 minimum)",
+      "focusStates": "Visible 2px outline in primary color",
+      "altText": "Descriptive alt text for all images",
+      "semanticHTML": "Proper heading hierarchy (h1 > h2 > h3)",
+      "keyboardNavigation": "Full keyboard accessibility",
+      "ariaLabels": "For icons, decorative elements, and interactive components",
+      "skipLinks": "Skip to main content link",
+      "reducedMotion": "Respect prefers-reduced-motion media query"
+    },
+    "animationPatterns": {
+      "pageLoad": {
+        "hero": "Fade in with slight upward movement (stagger text then image)",
+        "sections": "Fade in on scroll (Intersection Observer)",
+        "decorativeElements": "Gentle floating animation"
+      },
+      "scrollAnimations": {
+        "trigger": "Element enters viewport (50% visible)",
+        "effect": "Fade in with translateY(30px to 0)",
+        "stagger": "0.1s delay between grouped elements"
+      },
+      "interactions": {
+        "buttons": "Scale(1.05) + shadow increase on hover",
+        "cards": "Lift (translateY(-8px)) + shadow on hover",
+        "links": "Underline animation or color transition",
+        "icons": "Rotate or scale on hover"
+      },
+      "microInteractions": {
+        "formFocus": "Border color and shadow transition",
+        "buttonClick": "Quick scale down then up",
+        "filterToggle": "Smooth background color transition"
+      }
+    },
+    "designPrinciples": {
+      "playfulProfessionalism": "Balance vibrant colors with clean layouts",
+      "whitespace": "Generous spacing between sections and elements",
+      "visualHierarchy": "Clear distinction between primary and secondary content",
+      "consistency": "Repeated use of shapes, colors, and patterns",
+      "personality": "Hand-drawn elements and organic shapes add uniqueness",
+      "modernAesthetic": "Rounded corners, gradients, and contemporary styling"
+    },
+    "implementationNotes": {
+      "framework": "React, Vue, Next.js, or vanilla HTML/CSS",
+      "cssApproach": "Utility-first (Tailwind) or CSS-in-JS (Styled Components)",
+      "animations": "Framer Motion, GSAP, or CSS animations",
+      "svgUsage": "Inline SVG for icons and decorative elements",
+      "imageOptimization": "WebP with PNG/JPEG fallback, lazy loading",
+      "performance": "Target <2.5s load time, code splitting, minification",
+      "fonts": "Google Fonts (Poppins, Inter) with font-display: swap",
+      "seo": "Semantic HTML, meta tags, structured data",
+      "deployment": "Static hosting (Vercel, Netlify) or traditional hosting"
+    },
+    "colorUsagePatterns": {
+      "backgrounds": {
+        "hero": "Vibrant primary color (purple/blue)",
+        "alternating": "White → Light gray → White pattern",
+        "cta": "Vibrant primary color matching hero"
+      },
+      "text": {
+        "headings": "Dark gray (#1F2937) on light, white on dark",
+        "body": "Medium gray (#6B7280) on light, white on dark",
+        "labels": "Primary color or medium gray"
+      },
+      "accents": {
+        "buttons": "Orange/yellow gradient or solid",
+        "icons": "Primary purple or accent orange",
+        "decorative": "Mix of accent colors with transparency"
+      }
+    },
+    "typographyRhythm": {
+      "headingSpacing": "0.5em to 1em margin-bottom",
+      "paragraphSpacing": "1.5em margin-bottom",
+      "sectionSpacing": "4rem to 6rem between major sections",
+      "componentSpacing": "2rem to 3rem between components within sections"
+    }
+  }
+}
