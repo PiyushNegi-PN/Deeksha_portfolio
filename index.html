@@ -8,8 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 </head>
 <body>
     <!-- Header/Navbar -->
@@ -77,7 +80,13 @@
                 </div>
                 <div class="about-image">
                     <div class="profile-image-container">
-                        <img src="image.jpg" alt="Deeksha Negi - Company Secretary" class="profile-photo">
+                        <img src="image.jpg" 
+                             alt="Deeksha Negi - Company Secretary" 
+                             class="profile-photo" 
+                             loading="lazy" 
+                             width="300" 
+                             height="300"
+                             style="width: 100%; height: auto; border-radius: 50%; object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -132,7 +141,7 @@
                     <div class="timeline-content">
                         <h3>CS Management Trainee</h3>
                         <h4>Kundan Kumar Mishra & Associates (PCS Firm), Delhi</h4>
-                        <span class="date">Jan 2023 – May 2024</span>
+                        <span class="date">Jan 2023 - May 2024</span>
                         <ul>
                             <li>Assisted in company and LLP incorporation processes.</li>
                             <li>Handled signatory updates and changes in company details.</li>
@@ -194,20 +203,29 @@
                         <a href="mailto:deekshanegi771@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-                <form id="contact-form" class="contact-form">
+                <form id="contact-form" class="contact-form" aria-label="Contact form">
                     <div class="form-group">
-                        <input type="text" name="from_name" placeholder="Your Name" required>
+                        <label for="from_name" class="sr-only">Your Name</label>
+                        <input type="text" id="from_name" name="from_name" placeholder="Your Name" required aria-required="true">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="from_email" placeholder="Your Email" required>
+                        <label for="reply_to" class="sr-only">Your Email</label>
+                        <input type="email" id="reply_to" name="reply_to" placeholder="Your Email" required aria-required="true">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="subject" placeholder="Subject">
+                        <label for="subject" class="sr-only">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required aria-required="true">
                     </div>
                     <div class="form-group">
-                        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        <label for="message" class="sr-only">Your Message</label>
+                        <textarea id="message" name="message" placeholder="Your Message" required aria-required="true"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary" aria-label="Send message">
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loading" aria-hidden="true">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </span>
+                    </button>
                 </form>
                 <!-- Success Message -->
                 <div id="success-message" class="success-message" style="display: none;">
@@ -234,10 +252,39 @@
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <script src="js/script.js"></script>
-    <script src="js/tilt.js"></script>
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.0.0/dist/email.min.js"></script>
-    <script src="js/email.js"></script>
+    <!-- Load EmailJS with a different approach -->
+    <script>
+        // Create a function to initialize the form after EmailJS loads
+        function initializeEmailJS() {
+            // Check if emailjs is available
+            if (typeof emailjs === 'undefined') {
+                console.error('EmailJS not loaded');
+                return;
+            }
+            
+            // Initialize with your public key
+            emailjs.init('5dYuxXD5cPDBn8OFl');
+            console.log('EmailJS initialized successfully');
+        }
+        
+        // Load EmailJS script
+        (function() {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+            script.onload = initializeEmailJS;
+            script.onerror = function() {
+                console.error('Failed to load EmailJS');
+                const errorMessage = document.getElementById('error-message');
+                if (errorMessage) {
+                    errorMessage.textContent = 'Failed to load email service. Please check your internet connection and refresh the page.';
+                    errorMessage.style.display = 'block';
+                }
+            };
+            document.head.appendChild(script);
+        })();
+    </script>
+    <script src="js/email.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/tilt.js" defer></script>
 </body>
 </html>
