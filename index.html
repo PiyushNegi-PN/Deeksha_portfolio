@@ -47,11 +47,25 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Animated background (subtle gradient + floating shapes) -->
+        <div class="hero-bg" aria-hidden="true">
+            <div class="bg-shape s1"></div>
+            <div class="bg-shape s2"></div>
+            <div class="bg-shape s3"></div>
+            <!-- Additional medium/small blurred bubbles -->
+            <div class="bg-shape s4"></div>
+            <div class="bg-shape s5"></div>
+            <div class="bg-shape s6"></div>
+            <div class="bg-shape s7"></div>
+            <div class="bg-shape s8"></div>
+            <div class="bg-shape s9"></div>
+        </div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Deeksha Negi</h1>
                 <h2 class="hero-subtitle">Company Secretary Trainee | Corporate Compliance | Legal Management</h2>
                 <p class="hero-text">Dedicated and detail-oriented professional with expertise in corporate law, compliance, and company secretarial practices.</p>
+                <!-- Motion controls removed (site-owner override applied) -->
                 <div class="hero-buttons">
                     <a href="Deeksha_Resume.pdf" class="btn btn-primary" download="Deeksha_Negi_Resume">
                         <i class="fas fa-download"></i> Download Resume
@@ -151,6 +165,18 @@
                         </ul>
                     </div>
                 </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Company Secretary Trainee</h3>
+                        <h4>Lalit Singhal & Associates (PCS Firm), Delhi</h4>
+                        <span class="date">Jun 2024 - Present</span>
+                        <ul>
+                            <li>Managing ROC filings and compliance management for listed and private entities.</li>
+                            <li>Drafting annual reports, corporate disclosures, and minutes of meetings.</li>
+                            <li>Coordinating with clients and authorities for documentation and compliance.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -242,8 +268,42 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Deeksha Negi. All rights reserved.</p>
-            <p>Designed with ❤️ by Deeksha Negi</p>
+            <div class="footer-grid">
+                <div class="footer-col about">
+                    <a href="#about" class="logo-footer"><i class="fas fa-user-tie"></i> <span>Deeksha Negi</span></a>
+                    <p class="footer-blurb">Company Secretary Trainee specializing in corporate compliance, ROC filings, and legal documentation. Based in New Delhi.</p>
+                    <div class="social-links" aria-label="Social links">
+                        <a href="https://www.linkedin.com/in/deeksha-negi-5987ba24b" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:deekshanegi771@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col links">
+                    <h4>Quick links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:deekshanegi771@gmail.com">deekshanegi771@gmail.com</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+918791842469">+91 8791842469</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                </div>
+
+                <!-- newsletter removed per request -->
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Deeksha Negi. All rights reserved.</p>
+                <p>Designed with ❤️ by Deeksha Negi</p>
+            </div>
         </div>
     </footer>
 
@@ -286,5 +346,18 @@
     <script src="js/email.js" defer></script>
     <script src="js/script.js" defer></script>
     <script src="js/tilt.js" defer></script>
+    <script>
+        // SITE-OWNER OVERRIDE: force-enable hero animation for all visitors.
+        // This sets the global flag the animator checks and the html attribute
+        // so the animator will start even when the system prefers reduced motion.
+        window.HERO_ANIM_FORCE = true;
+        try {
+            document.documentElement.setAttribute('data-force-motion', 'true');
+        } catch (e) {
+            /* ignore if setting attribute fails */
+            console.warn('Could not set data-force-motion attribute:', e);
+        }
+    </script>
+    <script src="js/hero-anim.js" defer></script>
 </body>
 </html>
