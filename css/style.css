@@ -335,21 +335,7 @@ textarea::placeholder {
     color: var(--primary-color);
 }
 
-/* Buttons */
-.btn-primary {
-    background: linear-gradient(135deg, var(--primary-color), #3b82f6);
-    color: white;
-}
 
-.btn-secondary {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
 
 /* Timeline */
 .timeline::before {
@@ -593,13 +579,16 @@ html {
 
 .btn-secondary {
     background: var(--bg-light);
-    color: var(--primary-color);
-    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    /* Ensure contrast */
+    border: 2px solid var(--secondary-color);
+    /* Make border visible matching theme */
     box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
-    background: var(--bg-color);
+    background: var(--secondary-color);
+    color: white;
     border-color: var(--secondary-color);
     transform: translateY(-3px) scale(1.02);
     box-shadow: var(--shadow-md);
