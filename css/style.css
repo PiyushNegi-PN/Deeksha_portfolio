@@ -391,9 +391,7 @@ textarea::placeholder {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+
 
 /* Global Typography */
 body {
@@ -456,9 +454,37 @@ img {
 
 .container {
     width: 100%;
-    max-width: 1240px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 20px;
+    max-width: 100%;
+}
+
+/* Responsive Breakpoints (Mobile First) */
+@media (min-width: 480px) {
+    .container {
+        max-width: 100%;
+        padding: 0 24px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+        padding: 0 32px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 960px;
+        padding: 0 40px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1200px;
+    }
 }
 
 .section {
@@ -478,7 +504,7 @@ img {
 
 /* Ensure smooth scrolling on the html element */
 html {
-    scroll-behavior: smooth;
+    /* Custom JS smooth scroll used instead */
     scroll-padding-top: 80px;
     /* Matches header height */
 }
@@ -770,7 +796,8 @@ textarea:valid {
     height: 3px;
     margin: 5px 0;
     background-color: var(--text-color);
-    transition: var(--transition);
+    transition: all 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    /* Slower toggle animation */
 }
 
 /* Hero Section */
@@ -2437,7 +2464,8 @@ textarea:valid {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: right 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        /* Slow smooth slide */
         box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
         z-index: 1000;
         backdrop-filter: blur(16px);
@@ -2456,7 +2484,7 @@ textarea:valid {
         margin: 20px 0;
         opacity: 0;
         transform: translateX(20px);
-        transition: opacity 0.3s, transform 0.3s;
+        transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .nav-menu.active .nav-item {
@@ -2465,31 +2493,31 @@ textarea:valid {
     }
 
     .nav-menu.active .nav-item:nth-child(1) {
-        transition-delay: 0.1s;
-    }
-
-    .nav-menu.active .nav-item:nth-child(2) {
-        transition-delay: 0.15s;
-    }
-
-    .nav-menu.active .nav-item:nth-child(3) {
         transition-delay: 0.2s;
     }
 
-    .nav-menu.active .nav-item:nth-child(4) {
-        transition-delay: 0.25s;
-    }
-
-    .nav-menu.active .nav-item:nth-child(5) {
+    .nav-menu.active .nav-item:nth-child(2) {
         transition-delay: 0.3s;
     }
 
+    .nav-menu.active .nav-item:nth-child(3) {
+        transition-delay: 0.4s;
+    }
+
+    .nav-menu.active .nav-item:nth-child(4) {
+        transition-delay: 0.5s;
+    }
+
+    .nav-menu.active .nav-item:nth-child(5) {
+        transition-delay: 0.6s;
+    }
+
     .nav-menu.active .nav-item:nth-child(6) {
-        transition-delay: 0.35s;
+        transition-delay: 0.7s;
     }
 
     .nav-menu.active .nav-item:nth-child(7) {
-        transition-delay: 0.4s;
+        transition-delay: 0.8s;
     }
 
     .timeline::before {
@@ -2501,10 +2529,24 @@ textarea:valid {
         padding-left: 60px;
         padding-right: 0;
         text-align: left !important;
+        display: flex;
+        flex-direction: column;
+        grid-template-columns: none;
+        /* Reset grid */
+        margin-bottom: 30px;
     }
 
-    .timeline-item:nth-child(even) {
+    .timeline-item:nth-child(even),
+    .timeline-item:nth-child(odd) {
         left: 0;
+        grid-column: auto;
+    }
+
+    .timeline-content {
+        width: 100%;
+        max-width: 100%;
+        grid-column: auto !important;
+        margin: 0 !important;
     }
 
     .timeline-item::after {
@@ -2512,12 +2554,20 @@ textarea:valid {
         right: auto !important;
     }
 
+    .timeline .date {
+        white-space: nowrap;
+        align-self: flex-start;
+    }
+
+    /* Reset arrow positions */
     .timeline-item:nth-child(odd) .timeline-content::after,
     .timeline-item:nth-child(even) .timeline-content::after {
         left: -10px;
         right: auto;
         top: 20px;
         transform: rotate(-45deg);
+        display: none;
+        /* Hide arrows on mobile for cleaner look, or adjust */
     }
 
     .hero-title {
@@ -2541,6 +2591,12 @@ textarea:valid {
     .hero-buttons {
         flex-direction: column;
         gap: 15px;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        /* Full width buttons on mobile */
     }
 
     .btn-secondary {
@@ -2552,9 +2608,19 @@ textarea:valid {
         gap: 10px;
     }
 
+    .languages span {
+        width: 100%;
+        justify-content: center;
+    }
+
     .skills-grid,
     .education-grid {
         grid-template-columns: 1fr;
+    }
+
+    .profile-image-container {
+        width: 220px;
+        height: 220px;
     }
 }
 

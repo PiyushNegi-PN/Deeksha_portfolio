@@ -15,6 +15,34 @@
     const header = document.querySelector('.header');
 
     // ============================================
+    // Smooth Scroll Helper
+    // ============================================
+    // Custom easing function (easeInOutCubic) for luxurious feel
+    const easeInOutCubic = t => t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+
+    // Core animation engine
+    const smoothScrollTo = (targetPosition, duration = 1500) => {
+        const startPosition = window.scrollY;
+        const distance = targetPosition - startPosition;
+        let startTime = null;
+
+        function animation(currentTime) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+            const ease = easeInOutCubic(progress);
+
+            window.scrollTo(0, startPosition + (distance * ease));
+
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        }
+
+        requestAnimationFrame(animation);
+    };
+
+    // ============================================
     // Mobile Menu Toggle
     // ============================================
     function initMobileMenu() {
@@ -55,47 +83,50 @@
     // Smooth Scrolling
     // ============================================
     function initSmoothScrolling() {
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
+        const handleScrollClick = (e, link) => {
+            const href = link.getAttribute('href');
+            // Only handle internal links
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
 
-                // Only handle internal links
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    const headerHeight = header ? header.offsetHeight : 0;
+                    // Calculate precise position
+                    const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY - headerHeight;
 
-                    if (targetSection) {
-                        const headerHeight = header ? header.offsetHeight : 0;
-                        const targetPosition = targetSection.offsetTop - headerHeight;
-
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
+                    smoothScrollTo(targetPosition, 1500); // 1.5s duration
                 }
-            });
+            }
+        };
+
+
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => handleScrollClick(e, link));
         });
 
         // Handle scroll-down button
         const scrollDownBtn = document.querySelector('.scroll-down a');
         if (scrollDownBtn) {
-            scrollDownBtn.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
+            scrollDownBtn.addEventListener('click', (e) => handleScrollClick(e, scrollDownBtn));
+        }
 
-                if (targetSection) {
-                    const headerHeight = header ? header.offsetHeight : 0;
-                    const targetPosition = targetSection.offsetTop - headerHeight;
-
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+        // Handle Back-to-Top with same slow effect
+        if (scrollTopBtn) {
+            // Remove old listener first (cloning node is a quick way to wipe listeners if we can't reference original handler easily, 
+            // but here we are in same scope, so we just overwrite the behavior if we are careful. 
+            // Better: just add the new one and ensure we preventDefault.
+            // Since we are inside the init function which runs once, we can just attach our new logic.
+            // The previous listener in initScrollToTop used window.scrollTo behavior:smooth.
+            // We will intercept it here or assume this runs after. 
+            // Ideally we should update initScrollToTop too, but this function only handles nav links usually.
+            // Let's rely on modifying initScrollToTop in a separate edit if needed, 
+            // OR just handle the specific logic here if possible. 
+            // Actually, let's just update the specific scroll top button logic in its own function later 
+            // or we can attach a new listener here that stops propagation? 
+            // Let's stick to updating the nav links here first.
         }
     }
 
@@ -153,10 +184,7 @@
         // Scroll to top on click
         scrollTopBtn.addEventListener('click', function (e) {
             e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            smoothScrollTo(0, 1500); // 1.5s slow smooth scroll to top
         });
 
         // Initial check
@@ -172,8 +200,9 @@
     function initThemeToggle() {
         if (!themeToggle) return;
 
-        // Check for saved theme preference or default to 'light'
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        // Check for saved theme preference or default to system preference, then 'light'
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+        const currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? "dark" : "light");
         document.documentElement.setAttribute('data-theme', currentTheme);
         updateThemeIcon(currentTheme);
 
