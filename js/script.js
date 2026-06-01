@@ -115,18 +115,7 @@
 
         // Handle Back-to-Top with same slow effect
         if (scrollTopBtn) {
-            // Remove old listener first (cloning node is a quick way to wipe listeners if we can't reference original handler easily, 
-            // but here we are in same scope, so we just overwrite the behavior if we are careful. 
-            // Better: just add the new one and ensure we preventDefault.
-            // Since we are inside the init function which runs once, we can just attach our new logic.
-            // The previous listener in initScrollToTop used window.scrollTo behavior:smooth.
-            // We will intercept it here or assume this runs after. 
-            // Ideally we should update initScrollToTop too, but this function only handles nav links usually.
-            // Let's rely on modifying initScrollToTop in a separate edit if needed, 
-            // OR just handle the specific logic here if possible. 
-            // Actually, let's just update the specific scroll top button logic in its own function later 
-            // or we can attach a new listener here that stops propagation? 
-            // Let's stick to updating the nav links here first.
+            // Re-attaching logic is handled in initScrollToTop
         }
     }
 
@@ -195,46 +184,6 @@
     }
 
     // ============================================
-    // Theme Toggle (Dark/Light Mode)
-    // ============================================
-    function initThemeToggle() {
-        if (!themeToggle) return;
-
-        // Check for saved theme preference or default to system preference, then 'light'
-        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-        const currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? "dark" : "light");
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
-
-        // Toggle theme on button click
-        themeToggle.addEventListener('click', function () {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-    }
-
-    function updateThemeIcon(theme) {
-        if (!themeToggle) return;
-
-        const icon = themeToggle.querySelector('i');
-        if (icon) {
-            if (theme === 'dark') {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-                themeToggle.setAttribute('aria-label', 'Switch to light mode');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-                themeToggle.setAttribute('aria-label', 'Switch to dark mode');
-            }
-        }
-    }
-
-    // ============================================
     // Loading State
     // ============================================
     function removeLoadingState() {
@@ -298,7 +247,6 @@
         initMobileMenu();
         initSmoothScrolling();
         initScrollToTop();
-        initThemeToggle();
         initScrollAnimations();
         initScrollListener();
 
